@@ -11,7 +11,6 @@ class AppContainer extends React.Component {
     }
 
     render() {
-
         const panes = [
           { menuItem: 'Employee', render: () => <Tab.Pane><EmployeeContainer/></Tab.Pane> },
           { menuItem: 'Department', render: () => <Tab.Pane><DepartmentContainer/></Tab.Pane> }
