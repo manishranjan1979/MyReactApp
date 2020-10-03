@@ -7,14 +7,15 @@ import {DepartmentActionCreators} from '../redux/departmentActions';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {getLoading, getDepartments} from '../redux/departmentSelectors';
+import DepartmentModel from '../../models/DepartmentModel';
 
 export interface IDepartmentState {
-    departments : any[]
+    departments : DepartmentModel[]
 }
 
 export interface IDepartmentProps {
     loading : boolean;
-    departments : any[];
+    departments : DepartmentModel[];
 }
 
 class DepartmentContainer extends React.Component<IDepartmentProps & typeof DepartmentActionCreators> {
@@ -42,8 +43,8 @@ class DepartmentContainer extends React.Component<IDepartmentProps & typeof Depa
 
         return (
             <div>
-                <DepartmentModal/>
-                <div className="ag-theme-alpine" style={ {height: '200px', width: '602px'} }>
+                <DepartmentModal saveDepartment={this.props.saveDepartment}/>
+                <div className="ag-theme-alpine" style={ {height: '400px', width: '602px'} }>
                         <AgGridReact
                             columnDefs={columnDefs}
                             rowData={this.props.departments}>

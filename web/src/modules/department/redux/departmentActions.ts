@@ -4,5 +4,8 @@ export const {Types: DepartmentTypes, Creators: DepartmentActionCreators} = crea
     loadDepartmentsStart: null,
     loadDepartments:null,
     loadDepartmentsSuccess:['payload'],
-    loadDepartmentsError:['message']
+    loadDepartmentsError:['message'],
+    saveDepartment:['department'],
+    saveDepartmentSuccess: ['payload'],
+    saveDepartmentError: ['message']
 });

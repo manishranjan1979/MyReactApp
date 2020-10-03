@@ -2,9 +2,11 @@ import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
 import { Formik, FormikProps } from 'formik';
 import { Form, Segment, Select, Radio} from 'semantic-ui-react';
-
+import DepartmentModel from '../../models/DepartmentModel';
+import { toast } from 'react-semantic-toasts';
 export interface IProps {
-
+    saveDepartment : any;
+    setOpen : any;
 }
 
 export interface IState {
@@ -32,8 +34,21 @@ class DepartmentForm extends React.Component <IProps, IState> {
     }
 
     handleSubmit = (values : any, formikApi : any) => {
-        alert(values.firstName);
-        alert(values.lastName);
+        const department : DepartmentModel = {
+            dName : values.dName,
+            dPhone : values.dPhone,
+            address : values.dAddress
+        }
+        this.props.saveDepartment(department);
+        toast({
+                type: 'success',
+                icon: 'check',
+                size : 'small',
+                color: 'green',
+                title: 'Request Submitted',
+                animation: 'bounce',
+                time: 5000});
+        this.props.setOpen(false);
     }
 
     getDepartment = () => {

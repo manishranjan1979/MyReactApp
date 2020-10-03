@@ -7,10 +7,12 @@ import * as serviceWorker from './serviceWorker';
 import ErrorBoundary from 'react-error-boundary';
 import {Provider} from 'react-redux';
 import {configureStore} from './configureStore';
+import { SemanticToastContainer } from 'react-semantic-toasts';
 
 ReactDOM.render(
   <React.StrictMode>
         <Provider store={configureStore()}>
+            <SemanticToastContainer position="top-right" />
             <AppContainer />
         </Provider>
   </React.StrictMode>,

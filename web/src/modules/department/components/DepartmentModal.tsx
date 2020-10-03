@@ -2,7 +2,11 @@ import React from 'react'
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 import DepartmentForm from './DepartmentForm';
 
-function DepartmentModal() {
+interface IDepartmentModalProps {
+    saveDepartment : any;
+}
+
+function DepartmentModal(props : IDepartmentModalProps) {
   const [open, setOpen] = React.useState(false)
 
   return (
@@ -14,7 +18,7 @@ function DepartmentModal() {
     >
       <Modal.Header>Add Department</Modal.Header>
       <Modal.Content>
-        <DepartmentForm/>
+        <DepartmentForm saveDepartment={props.saveDepartment} setOpen={setOpen}/>
       </Modal.Content>
       <Modal.Actions>
         <Button color='black' onClick={() => setOpen(false)}>
